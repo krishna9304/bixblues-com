@@ -55,12 +55,10 @@
       const redirectScheme =
         new URLSearchParams(window.location.search).get("redirect_scheme") ||
         "exp";
-      const redirectHost =
-        new URLSearchParams(window.location.search).get("redirect_host") ||
-        "localhost:8081";
 
-      // Redirect back to app with token and state
-      window.location.href = `${redirectScheme}://${redirectHost}/--/callback?access_token=${token}&state=${state}`;
+      if (token && state)
+        // Redirect back to app with token and state
+        window.location.href = `${redirectScheme}://callback?access_token=${token}&state=${state}`;
     </script>
   </head>
   <body>
