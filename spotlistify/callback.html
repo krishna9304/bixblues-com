@@ -54,7 +54,7 @@
       if (token && state) {
         // Redirect back to app with token and state
         window.location.replace(
-          `exp://callback?access_token=${token}&state=${state}`
+          `spotlistify:///(auth)/callback?access_token=${token}&state=${state}`
         );
       }
     </script>
