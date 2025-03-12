@@ -51,9 +51,16 @@
       const token = params.get("access_token");
       const state = params.get("state");
 
+      // Get the redirect URL from the query params or use default Expo Go URL
+      const redirectScheme =
+        new URLSearchParams(window.location.search).get("redirect_scheme") ||
+        "exp";
+      const redirectHost =
+        new URLSearchParams(window.location.search).get("redirect_host") ||
+        "localhost:8081";
+
       // Redirect back to app with token and state
-      if (token && state)
-        window.location.href = `spotlistify://callback?access_token=${token}&state=${state}`;
+      window.location.href = `${redirectScheme}://${redirectHost}/--/callback?access_token=${token}&state=${state}`;
     </script>
   </head>
   <body>
