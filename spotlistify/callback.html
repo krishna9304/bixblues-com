@@ -51,14 +51,12 @@
       const token = params.get("access_token");
       const state = params.get("state");
 
-      // Get the redirect URL from the query params or use default Expo Go URL
-      const redirectScheme =
-        new URLSearchParams(window.location.search).get("redirect_scheme") ||
-        "exp";
-
-      if (token && state)
+      if (token && state) {
         // Redirect back to app with token and state
-        window.location.href = `${redirectScheme}://callback?access_token=${token}&state=${state}`;
+        window.location.replace(
+          `exp://callback?access_token=${token}&state=${state}`
+        );
+      }
     </script>
   </head>
   <body>
