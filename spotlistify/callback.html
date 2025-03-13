@@ -51,12 +51,10 @@
       const token = params.get("access_token");
       const state = params.get("state");
 
-      if (token && state) {
-        // Redirect back to app with token and state
-        window.location.replace(
-          `spotlistify:///(auth)/callback?access_token=${token}&state=${state}`
-        );
-      }
+      // Redirect back to app with token and state
+      window.location.replace(
+        `spotlistify:///(auth)/callback?access_token=${token}&state=${state}`
+      );
     </script>
   </head>
   <body>
